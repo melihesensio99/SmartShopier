@@ -1,100 +1,130 @@
-# EatWell - AI-Powered Nutrition & Calorie Tracker 🍏🤖
-
-![EatWell Header](https://img.shields.io/badge/EatWell-AI%20Nutrition-success?style=for-the-badge&logo=react)
-![.NET Core](https://img.shields.io/badge/.NET_9-Clean_Architecture-512BD4?style=for-the-badge&logo=dotnet)
-![React Native](https://img.shields.io/badge/React_Native-Expo-61DAFB?style=for-the-badge&logo=react)
-![Mistral AI](https://img.shields.io/badge/Mistral_AI-Vision_&_NLP-F7DF1E?style=for-the-badge)
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Docker-336791?style=for-the-badge&logo=postgresql)
-
-EatWell is a next-generation calorie tracking and nutrition assistant. Say goodbye to manual calorie entry! Snap a photo of your food, scan a barcode, and let Artificial Intelligence do the rest. Protect your health with dynamic Allergen Alerts, and consult your personal AI Dietitian for daily advice.
-
----
-
-## ✨ Key Features
-
-* **📷 AI Vision Food Analysis:** Take a picture of your meal! Our backend forwards the image to **Mistral AI (Pixtral-12b)**, which instantly predicts the food type and calculates its Calories, Protein, Carbohydrates, and Fats.
-* **🔎 Instant Barcode Scanner:** Integrated with the global **OpenFoodFacts API**. Scan any packaged food to get its exact nutritional values and ingredients.
-* **⚠️ Smart Allergen Alerts (Soft Alert System):** Save your allergies (e.g., Gluten, Milk, Peanuts). Whenever you scan or photograph a food containing these allergens, the system cross-matches the ingredients and displays a huge warning!
-* **💬 AI Chatbot Dietitian:** Ask questions like *"Is this suitable for my pre-workout?"* or *"Can I eat this late at night?"* The AI assistant knows your allergen profile and gives contextual, personalized answers.
-* **📊 Daily Targets & Dynamic UI:** Beautiful, smooth, and responsive UI built with **React Native Reanimated** and Glassmorphism design principles. Tracks your daily macro goals automatically.
-
----
-
-## 📱 Screenshots
+# EatWell
 
 <div align="center">
-  <img src="screenshots/screenshot1.png" width="23%" />
-  <img src="screenshots/screenshot2.png" width="23%" />
-  <img src="screenshots/screenshot3.png" width="23%" />
-  <img src="screenshots/screenshot4.png" width="23%" />
+  <img src="screenshots/screenshot9.png" alt="EatWell app preview" width="920" />
+  <br />
+  <br />
+  <p><strong>AI-powered nutrition and calorie tracking with food recognition, barcode scanning, and personalized dietary guidance.</strong></p>
+  <p>
+    <img src="https://img.shields.io/badge/.NET-9-512BD4?style=for-the-badge&logo=dotnet" alt=".NET 9" />
+    <img src="https://img.shields.io/badge/React_Native-Expo-61DAFB?style=for-the-badge&logo=react" alt="React Native Expo" />
+    <img src="https://img.shields.io/badge/Mistral_AI-Vision_Focused-F7DF1E?style=for-the-badge" alt="Mistral AI" />
+    <img src="https://img.shields.io/badge/PostgreSQL-Docker-336791?style=for-the-badge&logo=postgresql" alt="PostgreSQL Docker" />
+  </p>
 </div>
-<br>
+
+EatWell is a next-generation nutrition assistant that reduces manual calorie logging and turns everyday meals into actionable insights. Take a photo of your food, scan a barcode, and let AI estimate macros, allergens, and smart dietary recommendations in seconds.
+
+## Highlights
+
+- **AI vision food analysis**: uploads meal photos to **Mistral AI (Pixtral-12B)** and returns estimated calories, protein, carbohydrates, and fats.
+- **Instant barcode scanning**: uses **OpenFoodFacts** to fetch packaged food nutrition data and ingredients.
+- **Smart allergen alerts**: checks user allergens against scanned or photographed foods and surfaces clear warnings.
+- **AI dietitian chat**: gives contextual answers based on the current food, daily goals, and allergy profile.
+- **Clean, responsive UI**: built with **React Native**, **Expo**, and a glassmorphism-inspired visual style.
+
+## Visual Tour
+
 <div align="center">
-  <img src="screenshots/screenshot5.png" width="23%" />
-  <img src="screenshots/screenshot6.png" width="23%" />
-  <img src="screenshots/screenshot7.png" width="23%" />
-  <img src="screenshots/screenshot8.png" width="23%" />
+  <table>
+    <tr>
+      <td><img src="screenshots/screenshot3.png" alt="Food analysis result" width="100%" /></td>
+      <td><img src="screenshots/screenshot9.png" alt="AI analysis in progress" width="100%" /></td>
+    </tr>
+    <tr>
+      <td><img src="screenshots/screenshot10.png" alt="Barcode scanner" width="100%" /></td>
+      <td><img src="screenshots/screenshot11.png" alt="Nutrition details" width="100%" /></td>
+    </tr>
+  </table>
 </div>
-<br>
+
 <div align="center">
-  <img src="screenshots/screenshot9.png" width="23%" />
-  <img src="screenshots/screenshot10.png" width="23%" />
-  <img src="screenshots/screenshot11.png" width="23%" />
+  <table>
+    <tr>
+      <td><img src="screenshots/screenshot1.png" alt="Home screen" width="100%" /></td>
+      <td><img src="screenshots/screenshot2.png" alt="App screen" width="100%" /></td>
+      <td><img src="screenshots/screenshot4.png" alt="Feature screen" width="100%" /></td>
+    </tr>
+    <tr>
+      <td><img src="screenshots/screenshot5.png" alt="Tracking view" width="100%" /></td>
+      <td><img src="screenshots/screenshot6.png" alt="Daily progress" width="100%" /></td>
+      <td><img src="screenshots/screenshot7.png" alt="Detailed insight" width="100%" /></td>
+    </tr>
+    <tr>
+      <td><img src="screenshots/screenshot8.png" alt="Additional screen" width="100%" /></td>
+      <td><img src="screenshots/screenshot10.png" alt="Barcode scanner detail" width="100%" /></td>
+      <td><img src="screenshots/screenshot11.png" alt="Nutrition summary" width="100%" /></td>
+    </tr>
+  </table>
 </div>
 
----
+## Architecture
 
-## 🏗️ Architecture & Tech Stack
+EatWell follows **Clean Architecture** principles to keep the codebase maintainable and easy to extend.
 
-This project strictly adheres to **Clean Architecture (Onion Architecture)** principles, ensuring high testability, maintainability, and loosely-coupled components.
+### Backend
 
-### Backend (.NET 9)
-- **Domain Layer:** Pure entities (`CalorieGoal`, `DailyLog`, `UserAllergen`).
-- **Application Layer:** Use Cases, Interfaces, and DTOs.
-- **Infrastructure Layer:** Entity Framework Core, PostgreSQL, Mistral AI REST Client.
-- **API / Presentation Layer:** RESTful endpoints for the mobile client.
-- **Design Patterns:** Generic Repository Pattern, Unit of Work, Dependency Injection (IoC).
+- **Domain**: core entities such as `CalorieGoal`, `DailyLog`, and `UserAllergen`
+- **Application**: use cases, interfaces, DTOs, and business workflows
+- **Infrastructure**: Entity Framework Core, PostgreSQL, and the Mistral AI client
+- **API**: REST endpoints for the mobile application
 
-### Frontend (React Native & Expo)
-- **Framework:** React Native with Expo Toolchain (Camera, Image Picker, Constants).
-- **Styling:** Custom StyleSheet system with modern design systems (Glassmorphism, dark/light themes).
-- **Network:** `axios` for centralized API requests.
-- **Dynamic Networking:** Automatically fetches the Expo Dev Server's IP (`expo-constants`) so you never have to hardcode your local IP address again!
+### Mobile App
+
+- **Framework**: React Native with Expo
+- **Capabilities**: camera, image picker, and barcode scanning
+- **Styling**: custom UI system with modern glassmorphism-inspired surfaces
+- **Networking**: centralized API requests with `axios`
+- **Device connectivity**: dynamic Expo server IP discovery for easier local development
 
 ### DevOps
-- **Docker & Docker Compose:** The entire backend and PostgreSQL database are containerized for one-click deployment.
 
----
+- **Docker** and **Docker Compose** for backend and database containerization
 
-## 🚀 Getting Started
+## Getting Started
 
-### 1. Backend Setup
+### Backend
+
 1. Open the `eatwellfeelwell` directory.
-2. In `appsettings.json`, insert your **Mistral API Key**.
-3. Run the backend via Docker or local .NET SDK:
-   ```bash
-   # Run with Docker Compose
-   docker-compose up -d --build
-   
-   # Or run locally using .NET CLI
-   dotnet run
-   ```
+2. Add your **Mistral API key** in `appsettings.json`.
+3. Run the backend with Docker Compose or the .NET CLI.
 
-### 2. Frontend Setup
-1. Navigate to the `EatWellMobile` directory.
-2. Install dependencies:
-   ```bash
-   npm install
-   ```
-3. Start the Expo server:
-   ```bash
-   npx expo start
-   ```
-4. Open the **Expo Go** app on your physical iOS/Android device and scan the QR code. *(Thanks to the dynamic IP configuration, your phone will automatically connect to your PC's backend!)*
+```bash
+docker-compose up -d --build
 
----
+# or
+dotnet run
+```
 
-## 💡 About The Developers
-Developed as a graduation project at **Tekirdağ Namık Kemal University, Computer Engineering Department** by **Melih Esen** & **Tarık Gezici**, under the supervision of **Dr. Ahmet Saygılı**. 
+### Frontend
 
-*We believe tracking your health shouldn't be a tedious chore. It should be smart, fast, and beautiful.* 🌟
+1. Open the `EatWellMobile` directory.
+2. Install dependencies.
+
+```bash
+npm install
+```
+
+3. Start the Expo app.
+
+```bash
+npx expo start
+```
+
+4. Open **Expo Go** on your phone and scan the QR code.
+
+## Project Structure
+
+```text
+EatWell/
+|-- eatwellfeelwell/   # Backend solution
+|-- EatWellMobile/     # React Native app
+|-- screenshots/       # README images
+`-- docker-compose.yml # Backend + database orchestration
+```
+
+## About The Developers
+
+Developed as a graduation project at **Tekirdag Namik Kemal University, Computer Engineering Department** by **Melih Esen** and **Tarik Gezici**, under the supervision of **Dr. Ahmet Saygili**.
+
+*We believe health tracking should feel intelligent, fast, and beautiful.*
